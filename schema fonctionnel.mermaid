@@ -1,0 +1,30 @@
+flowchart TD
+    A[🌍 Environnement] --> B["Caméra (Perception brute)"]
+    
+    subgraph SG1 [Sphère Cognitive - Cerveau du système]
+        B -- "Flux vidéo continu" --> C["PC: Traitement & Cognition"]
+        C -- "Algorithmes de vision<br/>Détection visages, comptage" --> D["PC: Prise de décision"]
+        D -- "Élabore une stratégie d'ambiance" --> E["Encodage commande<br/>ex: 'LED:120,230,45|VOL:65'"]
+    end
+
+    E -- "Liaison Série (USB)" --> F
+
+    subgraph SG2 [Sphère Physique - Corps du système]
+        F["Arduino (Interface de contrôle)"] -- "Signaux PWM / Numériques" --> G{"Distribution &<br/>Conversion des signaux"}
+        G --> H["🎛️ LEDs RVB"]
+        G --> I["🔊 Amplificateur Audio"]
+        G --> J["⚡ Convertisseurs d'énergie"]
+    end
+
+    H --> K[💡 Lumière adaptative]
+    I --> L[🎶 Son immersif]
+    J --> M[🔌 Alimentation juste]
+
+    K --> N[✨ Ambiance créée]
+    L --> N
+    M --> N
+
+    N -- "Influence le comportement humain" --> A
+
+    style A stroke-dasharray: 5,5
+    style N stroke-dasharray: 5,5
